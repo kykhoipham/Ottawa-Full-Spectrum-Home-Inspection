@@ -10,15 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TradeReferralsRouteImport } from './routes/trade-referrals'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ReportSampleRouteImport } from './routes/report-sample'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookRouteImport } from './routes/book'
 import { Route as AgreementRouteImport } from './routes/agreement'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TradeReferralsRoute = TradeReferralsRouteImport.update({
   id: '/trade-referrals',
   path: '/trade-referrals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -36,6 +44,16 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AgreementRoute = AgreementRouteImport.update({
   id: '/agreement',
   path: '/agreement',
@@ -50,26 +68,35 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agreement': typeof AgreementRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
   '/pricing': typeof PricingRoute
   '/report-sample': typeof ReportSampleRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade-referrals': typeof TradeReferralsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agreement': typeof AgreementRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
   '/pricing': typeof PricingRoute
   '/report-sample': typeof ReportSampleRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade-referrals': typeof TradeReferralsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/agreement': typeof AgreementRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
   '/pricing': typeof PricingRoute
   '/report-sample': typeof ReportSampleRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade-referrals': typeof TradeReferralsRoute
 }
 export interface FileRouteTypes {
@@ -77,34 +104,46 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/agreement'
+    | '/book'
+    | '/contact'
     | '/pricing'
     | '/report-sample'
     | '/services'
+    | '/sitemap.xml'
     | '/trade-referrals'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/agreement'
+    | '/book'
+    | '/contact'
     | '/pricing'
     | '/report-sample'
     | '/services'
+    | '/sitemap.xml'
     | '/trade-referrals'
   id:
     | '__root__'
     | '/'
     | '/agreement'
+    | '/book'
+    | '/contact'
     | '/pricing'
     | '/report-sample'
     | '/services'
+    | '/sitemap.xml'
     | '/trade-referrals'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgreementRoute: typeof AgreementRoute
+  BookRoute: typeof BookRoute
+  ContactRoute: typeof ContactRoute
   PricingRoute: typeof PricingRoute
   ReportSampleRoute: typeof ReportSampleRoute
   ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TradeReferralsRoute: typeof TradeReferralsRoute
 }
 
@@ -115,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/trade-referrals'
       fullPath: '/trade-referrals'
       preLoaderRoute: typeof TradeReferralsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -138,6 +184,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/agreement': {
       id: '/agreement'
       path: '/agreement'
@@ -158,9 +218,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgreementRoute: AgreementRoute,
+  BookRoute: BookRoute,
+  ContactRoute: ContactRoute,
   PricingRoute: PricingRoute,
   ReportSampleRoute: ReportSampleRoute,
   ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TradeReferralsRoute: TradeReferralsRoute,
 }
 export const routeTree = rootRouteImport
