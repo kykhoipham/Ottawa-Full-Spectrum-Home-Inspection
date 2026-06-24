@@ -14,7 +14,81 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          message: string
+          phone: string | null
+          subject: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          message: string
+          phone?: string | null
+          subject?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          message?: string
+          phone?: string | null
+          subject?: string | null
+        }
+        Relationships: []
+      }
+      inspection_bookings: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          inspection_type: string | null
+          notes: string | null
+          phone: string
+          preferred_date: string | null
+          preferred_time: string | null
+          property_address: string
+          property_type: string | null
+          square_footage: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          inspection_type?: string | null
+          notes?: string | null
+          phone: string
+          preferred_date?: string | null
+          preferred_time?: string | null
+          property_address: string
+          property_type?: string | null
+          square_footage?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          inspection_type?: string | null
+          notes?: string | null
+          phone?: string
+          preferred_date?: string | null
+          preferred_time?: string | null
+          property_address?: string
+          property_type?: string | null
+          square_footage?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
