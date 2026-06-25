@@ -112,7 +112,7 @@ function Home() {
 
             <ul className="mt-8 space-y-3">
               {[
-                "InterNACHI-trained, fully insured inspector",
+                "Aerial inspection of the roof using a drone",
                 "Thermal imaging & moisture testing included",
                 "Same-day digital report with annotated photos",
                 "Phone walk-through of findings after every job",
