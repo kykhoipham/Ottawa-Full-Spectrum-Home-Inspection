@@ -114,7 +114,7 @@ function Home() {
               {[
                 "Aerial inspection of the roof using a drone",
                 "Thermal imaging & moisture testing included",
-                "Same-day digital report with annotated photos",
+                "24 hours digital report with annotated photos",
                 "Review onsite findings after inspection",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3">
