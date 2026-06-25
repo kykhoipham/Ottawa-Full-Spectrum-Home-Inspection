@@ -6,7 +6,7 @@ export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
       { title: "Pricing — Ottawa Full Spectrum Home Inspection" },
-      { name: "description", content: "Transparent home inspection pricing for Ottawa homes, condos, and new construction. All reports delivered same day." },
+      { name: "description", content: "Transparent home inspection pricing for Ottawa homes, condos, and new construction. All reports delivered within 24 hours." },
       { property: "og:title", content: "Home Inspection Pricing" },
       { property: "og:description", content: "Flat-rate pricing based on square footage. No hidden fees." },
       { property: "og:url", content: "/pricing" },
@@ -22,7 +22,7 @@ const TIERS = [
     range: "Up to 1,500 sq ft",
     price: "$425",
     desc: "Best for condominium units, stacked towns, and smaller townhomes.",
-    features: ["Full in-suite inspection", "Common-element observations", "Photo report same day", "30-minute walk-through call"],
+    features: ["Full in-suite inspection", "Common-element observations", "Photo report within 24 hours", "30-minute walk-through call"],
   },
   {
     name: "Standard Home",
@@ -55,7 +55,7 @@ function Pricing() {
     <>
       <PageHeader
         eyebrow="Pricing"
-        title="Flat-rate pricing. Same-day reports."
+        title="Flat-rate pricing. 24-hour reports."
         description="Inspection fees are based on the size and complexity of the property. Final pricing is confirmed when you book — never any hidden charges."
       />
 

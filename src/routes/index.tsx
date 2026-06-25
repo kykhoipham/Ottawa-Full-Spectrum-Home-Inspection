@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Pre-purchase, pre-listing, and new construction home inspections across Ottawa and the National Capital Region. Detailed reports, same-day delivery.",
+          "Pre-purchase, pre-listing, and new construction home inspections across Ottawa and the National Capital Region. Detailed reports, 24-hour delivery.",
       },
       { property: "og:title", content: "Ottawa Full Spectrum Home Inspection" },
       {
@@ -60,7 +60,7 @@ function Home() {
           </h1>
           <p className="mt-6 max-w-xl text-lg md:text-xl text-cream/85 leading-relaxed">
             Full-spectrum home inspections that catch what listing photos miss —
-            from foundation to roofline, with photo-rich reports delivered the same day.
+            from foundation to roofline, with photo-rich reports delivered within 24 hours.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
@@ -107,14 +107,14 @@ function Home() {
               Every inspection follows a 150-point checklist covering structure,
               roofing, plumbing, electrical, HVAC, insulation, and more. You'll get
               a digital report with photos, severity ratings, and recommended next
-              steps — emailed the same day.
+              steps — emailed within 24 hours.
             </p>
 
             <ul className="mt-8 space-y-3">
               {[
                 "Aerial inspection of the roof using a drone",
                 "Thermal imaging & moisture testing included",
-                "Same-day digital report with annotated photos",
+                "24 hours digital report with annotated photos",
                 "Review onsite findings after inspection",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3">
