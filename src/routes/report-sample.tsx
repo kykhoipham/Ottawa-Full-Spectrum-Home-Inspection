@@ -57,8 +57,8 @@ function ReportSample() {
             <div className="flex items-start justify-between gap-4 flex-wrap">
               <div>
                 <p className="text-xs uppercase tracking-[0.22em] text-cream/70">Property Inspection Report</p>
-                <h2 className="mt-2 font-display text-3xl font-semibold">123 Maple Ridge Drive, Ottawa</h2>
-                <p className="mt-1 text-cream/80">Inspection date: March 14, 2026 · Report #OFS-2026-0142</p>
+                <h2 className="mt-2 font-display text-3xl font-semibold">123 Main Street, Ottawa</h2>
+                <p className="mt-1 text-cream/80">Inspection date: March 20, 2026 · Report #OFS-2026-0020</p>
               </div>
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-cream/15">
                 <FileText className="h-5 w-5" />
