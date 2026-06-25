@@ -1,10 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { z } from "zod";
-import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
 import { PageHeader } from "@/components/site/PageHeader";
-import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -52,9 +50,7 @@ const schema = z.object({
 });
 
 function Contact() {
-  const [loading, setLoading] = useState(false);
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = {
@@ -69,19 +65,17 @@ function Contact() {
       toast.error(parsed.error.issues[0]?.message ?? "Please check the form");
       return;
     }
-    setLoading(true);
-    const { error } = await supabase.from("contact_messages").insert({
-      full_name: parsed.data.full_name,
-      email: parsed.data.email,
-      phone: parsed.data.phone || null,
-      subject: parsed.data.subject || null,
-      message: parsed.data.message,
-    });
-    setLoading(false);
-    if (error) {
-      toast.error("Could not send your message. Please call us at (753) 886-3515.");
-      return;
-    }
+    const subject = `Contact from ${parsed.data.full_name}${parsed.data.subject ? " — " + parsed.data.subject : ""}`;
+    const body = [
+      `Name: ${parsed.data.full_name}`,
+      `Email: ${parsed.data.email}`,
+      `Phone: ${parsed.data.phone || "N/A"}`,
+      `Subject: ${parsed.data.subject || "N/A"}`,
+      "",
+      "Message:",
+      parsed.data.message,
+    ].join("\n");
+    window.location.href = `mailto:khoipham@ottawafullspectrumhomeinspection.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     toast.success("Message sent! We'll be in touch within one business day.");
     (e.target as HTMLFormElement).reset();
   }
@@ -126,11 +120,10 @@ function Contact() {
 
             <button
               type="submit"
-              disabled={loading}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-glow disabled:opacity-60 transition-colors"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-glow transition-colors"
             >
-              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-              {loading ? "Sending…" : "Send message"}
+              <Send className="h-4 w-4" />
+              Send message
             </button>
           </form>
         </div>

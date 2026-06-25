@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
-import { CalendarCheck, Loader2, ShieldCheck, Clock, FileCheck } from "lucide-react";
+import { CalendarCheck, ShieldCheck, Clock, FileCheck } from "lucide-react";
 import { toast } from "sonner";
 import { PageHeader } from "@/components/site/PageHeader";
-import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/book")({
   head: () => ({
@@ -37,10 +36,9 @@ const INSPECTION_TYPES = ["Pre-Purchase", "Pre-Listing", "New Construction / PDI
 const PROPERTY_TYPES = ["Detached", "Semi-detached", "Townhouse", "Condo / Apartment", "Multi-unit", "Other"];
 
 function Book() {
-  const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = Object.fromEntries(fd.entries()) as Record<string, string>;
@@ -49,24 +47,20 @@ function Book() {
       toast.error(parsed.error.issues[0]?.message ?? "Please complete the required fields");
       return;
     }
-    setLoading(true);
-    const { error } = await supabase.from("inspection_bookings").insert({
-      full_name: parsed.data.full_name,
-      email: parsed.data.email,
-      phone: parsed.data.phone,
-      property_address: parsed.data.property_address,
-      property_type: parsed.data.property_type || null,
-      square_footage: parsed.data.square_footage || null,
-      preferred_date: parsed.data.preferred_date || null,
-      preferred_time: parsed.data.preferred_time || null,
-      inspection_type: parsed.data.inspection_type || null,
-      notes: parsed.data.notes || null,
-    });
-    setLoading(false);
-    if (error) {
-      toast.error("Could not submit your request. Please call (753) 886-3515.");
-      return;
-    }
+    const subject = `Inspection Request from ${parsed.data.full_name}`;
+    const body = [
+      `Name: ${parsed.data.full_name}`,
+      `Email: ${parsed.data.email}`,
+      `Phone: ${parsed.data.phone}`,
+      `Property Address: ${parsed.data.property_address}`,
+      `Property Type: ${parsed.data.property_type || "N/A"}`,
+      `Square Footage: ${parsed.data.square_footage || "N/A"}`,
+      `Preferred Date: ${parsed.data.preferred_date || "N/A"}`,
+      `Preferred Time: ${parsed.data.preferred_time || "N/A"}`,
+      `Inspection Type: ${parsed.data.inspection_type || "N/A"}`,
+      `Notes: ${parsed.data.notes || "N/A"}`,
+    ].join("\n");
+    window.location.href = `mailto:khoipham@ottawafullspectrumhomeinspection.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setDone(true);
     toast.success("Request received! We'll confirm your slot within 24 hours.");
     (e.target as HTMLFormElement).reset();
@@ -137,11 +131,10 @@ function Book() {
 
               <button
                 type="submit"
-                disabled={loading}
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-glow disabled:opacity-60 transition-colors sm:w-auto"
+                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-glow transition-colors sm:w-auto"
               >
-                {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CalendarCheck className="h-4 w-4" />}
-                {loading ? "Submitting…" : "Request my inspection"}
+                <CalendarCheck className="h-4 w-4" />
+                Request my inspection
               </button>
             </form>
           )}
