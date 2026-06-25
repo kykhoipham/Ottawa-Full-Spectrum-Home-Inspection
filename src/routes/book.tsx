@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
-import { CalendarCheck, Loader2, ShieldCheck, Clock, FileCheck } from "lucide-react";
+import { CalendarCheck, ShieldCheck, Clock, FileCheck } from "lucide-react";
 import { toast } from "sonner";
 import { PageHeader } from "@/components/site/PageHeader";
-import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/book")({
   head: () => ({
