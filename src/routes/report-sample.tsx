@@ -67,8 +67,8 @@ function ReportSample() {
 
             <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { l: "Year built", v: "1998" },
-                { l: "Sq ft", v: "2,140" },
+                { l: "Year built", v: "2001" },
+                { l: "Sq ft", v: "2,200" },
                 { l: "Bedrooms", v: "4" },
                 { l: "Inspection time", v: "3h 20m" },
               ].map((s) => (
