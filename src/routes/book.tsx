@@ -131,11 +131,10 @@ function Book() {
 
               <button
                 type="submit"
-                disabled={loading}
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-glow disabled:opacity-60 transition-colors sm:w-auto"
+                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-glow transition-colors sm:w-auto"
               >
-                {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CalendarCheck className="h-4 w-4" />}
-                {loading ? "Submitting…" : "Request my inspection"}
+                <CalendarCheck className="h-4 w-4" />
+                Request my inspection
               </button>
             </form>
           )}
