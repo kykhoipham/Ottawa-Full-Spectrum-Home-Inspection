@@ -144,10 +144,11 @@ function Contact() {
 
             <button
               type="submit"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-glow transition-colors"
+              disabled={submitting}
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-glow transition-colors disabled:opacity-60"
             >
-              <Send className="h-4 w-4" />
-              Send message
+              {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+              {submitting ? "Sending…" : "Send message"}
             </button>
           </form>
         </div>
