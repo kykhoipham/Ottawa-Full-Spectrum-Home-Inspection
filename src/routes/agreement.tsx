@@ -19,7 +19,7 @@ export const Route = createFileRoute("/agreement")({
 const SECTIONS = [
   {
     h: "1. Scope of Inspection",
-    p: "Ottawa Full Spectrum Home Inspection ('Inspector') will perform a visual, non-invasive inspection of the readily accessible components of the property identified by the Client. The inspection is conducted in general accordance with the InterNACHI Standards of Practice and applicable Ontario legislation.",
+    p: "Ottawa Full Spectrum Home Inspection ('Inspector') will perform a visual, non-invasive inspection of the readily accessible components of the property identified by the Client. The inspection is conducted in general accordance with the OAHI Standards of Practice and applicable Ontario legislation.",
   },
   {
     h: "2. Systems & Components Covered",
