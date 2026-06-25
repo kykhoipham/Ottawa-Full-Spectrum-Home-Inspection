@@ -22,7 +22,7 @@ export const Route = createFileRoute("/services")({
 const PRIMARY = [
   { icon: Home, title: "Pre-Purchase Inspection",
     text: "A complete top-to-bottom assessment so you know what you're buying. Includes structural, mechanical, and safety review with photo report.",
-    points: ["Roof, attic & insulation", "Foundation & framing", "Electrical, plumbing, HVAC", "Same-day digital report"] },
+    points: ["Roof, attic & insulation", "Foundation & framing", "Electrical, plumbing, HVAC", "24 hours digital report"] },
   { icon: ClipboardCheck, title: "Pre-Listing Inspection",
     text: "Get ahead of buyer surprises. Identify items to repair, disclose, or price around before going to market.",
     points: ["Disclosure-ready report", "Repair priority list", "Optional re-inspection", "Realtor-friendly delivery"] },
