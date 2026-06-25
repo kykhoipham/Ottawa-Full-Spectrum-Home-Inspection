@@ -60,7 +60,7 @@ function Home() {
           </h1>
           <p className="mt-6 max-w-xl text-lg md:text-xl text-cream/85 leading-relaxed">
             Full-spectrum home inspections that catch what listing photos miss —
-            from foundation to roofline, with photo-rich reports delivered the same day.
+            from foundation to roofline, with photo-rich reports delivered within 24 hours.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
