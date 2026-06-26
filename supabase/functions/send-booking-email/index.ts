@@ -54,6 +54,7 @@ serve(async (req) => {
       body: JSON.stringify({
         from: FROM_EMAIL,
         to: [TO_EMAIL],
+        reply_to: email,
         subject: `🏠 New Inspection Request — ${property_address}`,
         html,
       }),
