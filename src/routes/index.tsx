@@ -154,8 +154,8 @@ function Home() {
               <div className="relative h-full w-full rounded-xl overflow-hidden">
                 {inspectorImages.map((img, i) => (
                   <img
-                    key={img.url}
-                    src={img.url}
+                    key={img}
+                    src={img}
                     alt="Home inspector at work"
                     width={1280}
                     height={960}
