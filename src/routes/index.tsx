@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   ShieldCheck,
   Camera,
@@ -11,7 +12,25 @@ import {
   Phone,
 } from "lucide-react";
 import heroHome from "@/assets/hero-home.jpg";
-import inspectorWorking from "@/assets/inspector-window.jpg.asset.json";
+import inspector1 from "@/assets/inspector-window.jpg.asset.json";
+import inspector2 from "@/assets/inspector-014.jpg.asset.json";
+import inspector3 from "@/assets/inspector-016-2.jpg.asset.json";
+import inspector4 from "@/assets/inspector-018.jpg.asset.json";
+import inspector5 from "@/assets/inspector-020.jpg.asset.json";
+import inspector6 from "@/assets/inspector-003.jpg.asset.json";
+import inspector7 from "@/assets/inspector-004.jpg.asset.json";
+import inspector8 from "@/assets/inspector-010.jpg.asset.json";
+
+const inspectorImages = [
+  inspector1,
+  inspector2,
+  inspector3,
+  inspector4,
+  inspector5,
+  inspector6,
+  inspector7,
+  inspector8,
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
