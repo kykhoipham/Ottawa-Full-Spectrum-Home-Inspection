@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoAsset from "@/assets/logo.png";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -22,7 +22,7 @@ export function SiteHeader() {
       <div className="container-prose flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
           <img
-            src={logoAsset.url}
+            src={logoAsset}
             alt="Ottawa Full Spectrum Home Inspection logo"
             className="h-[52px] w-auto"
           />

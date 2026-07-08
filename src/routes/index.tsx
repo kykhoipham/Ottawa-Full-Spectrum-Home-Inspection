@@ -12,14 +12,14 @@ import {
   Phone,
 } from "lucide-react";
 import heroHome from "@/assets/hero-home.jpg";
-import inspector1 from "@/assets/inspector-window.jpg.asset.json";
-import inspector2 from "@/assets/inspector-014.jpg.asset.json";
-import inspector3 from "@/assets/inspector-016-2.jpg.asset.json";
-import inspector4 from "@/assets/inspector-018.jpg.asset.json";
-import inspector5 from "@/assets/inspector-020.jpg.asset.json";
-import inspector6 from "@/assets/inspector-003.jpg.asset.json";
-import inspector7 from "@/assets/inspector-004.jpg.asset.json";
-import inspector8 from "@/assets/inspector-010.jpg.asset.json";
+import inspector1 from "@/assets/inspector-window.jpg";
+import inspector2 from "@/assets/inspector-014.jpg";
+import inspector3 from "@/assets/inspector-016-2.jpg";
+import inspector4 from "@/assets/inspector-018.jpg";
+import inspector5 from "@/assets/inspector-020.jpg";
+import inspector6 from "@/assets/inspector-003.jpg";
+import inspector7 from "@/assets/inspector-004.jpg";
+import inspector8 from "@/assets/inspector-010.jpg";
 
 const inspectorImages = [
   inspector1,
@@ -154,8 +154,8 @@ function Home() {
               <div className="relative h-full w-full rounded-xl overflow-hidden">
                 {inspectorImages.map((img, i) => (
                   <img
-                    key={img.url}
-                    src={img.url}
+                    key={img}
+                    src={img}
                     alt="Home inspector at work"
                     width={1280}
                     height={960}
